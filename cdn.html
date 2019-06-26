@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- markdown-it isn't required but enables out-of-the-box markdown support -->
+<script src="https://unpkg.com/markdown-it@8.4.0/dist/markdown-it.min.js"></script>
+
+<!-- NOTE: monaco-editor is required for the designer to work. We currently provide it in the CDN, but this may change later -->
+<script src="https://unpkg.com/adaptivecards-designer@0.1.1/dist/monaco-editor/min/vs/loader.js"></script>
+
+<script src="https://unpkg.com/adaptivecards-designer@0.1.1/dist/adaptivecards-designer.min.js"></script>
+
+<script type="text/javascript">
+  window.onload = function () {
+
+    let hostContainers = [];
+
+    // Optional: add the default Microsoft Host Apps (see docs below)
+    // hostContainers.push(new ACDesigner.WebChatContainer("Bot Framework WebChat", "containers/webchat-container.css"));
+
+    let designer = new ACDesigner.CardDesigner(hostContainers);
+
+    // The designer requires various CSS and image assets to work properly,
+    // If you've loaded the script from a CDN it needs to know where these assets are located
+    designer.assetPath = "https://unpkg.com/adaptivecards-designer@0.1.1/dist";
+
+    // Initialize monaco-editor for the JSON-editor pane. The simplest way to do this is use the code below, since we currently bundle monaco into our CDN distribution.
+    require.config({ paths: { 'vs': 'https://unpkg.com/adaptivecards-designer@0.1.0/dist/monaco-editor/min/vs' } });
+    require(['vs/editor/editor.main'], function () {
+      designer.monacoEditorLoaded();
+    });
+
+    designer.attachTo(document.getElementById("designerRootHost"));
+  };
+</script>
+</head>
+<body>
+  <div id="designerRootHost"></div>
+</body>
+</html>
