@@ -7,11 +7,12 @@ import {WebexTeamsContainer} from './WebexTeamsContainer';
 import 'adaptivecards-controls/dist/adaptivecards-controls.css';
 import 'adaptivecards-designer/dist/adaptivecards-designer.css';
 import './momentum-ui.scss';
+// import './momentum.css';
 
 function loadDesigner() {
   let hostContainers = [];
   hostContainers.push(new Designer.WebChatContainer('Bot Framework WebChat', 'containers/webchat-container.css'));
-  hostContainers.push(new WebexTeamsContainer('Webex Teams', './node_modules/@momentum-ui/core/css/momentum-ui.css'));
+  hostContainers.push(new WebexTeamsContainer('Webex Teams', './momentum.css'));
 
   let designer = new Designer.CardDesigner(hostContainers);
   designer.attachTo(document.getElementById('designerRootHost'));

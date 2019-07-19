@@ -5,7 +5,7 @@ import WebexTeamsHostConfig from './WebexTeamsHostConfig';
 export class WebexTeamsContainer extends HostContainer {
 
   renderTo(hostElement) {
-    this.cardHost.classList.add('webChatOuterContainer');
+    this.cardHost.classList.add('WebexTeamsInnerContainer');
 
     let frame = document.createElement('div');
     frame.className = 'WebexTeamsInnerContainer';
