@@ -29,7 +29,7 @@
     "@momentum-ui/core": "^16.2.0",
     "@momentum-ui/icons": "^6.12.0",
     "adaptivecards-designer": "^0.7.1",
-    "markdown-it": "^9.0.1",
+    "markdown-it": "^12.3.2",
     "monaco-editor": "^0.15.6"
   }
 }
